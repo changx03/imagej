@@ -35,6 +35,7 @@
 
 	<properties>
 		<main-class>net.imagej.Main</main-class>
+		<scijava.jvm.version>1.8</scijava.jvm.version>
 	</properties>
 
 	<repositories>
@@ -157,6 +158,22 @@
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>com.zenjava</groupId>
+				<artifactId>javafx-maven-plugin</artifactId>
+				<version>8.1.2</version>
+				<configuration>
+					<identifier>ImageJ</identifier>
+					<mainClass>${main-class}</mainClass>
+					<verbose>true</verbose>
+					<!--
+					NB: Setting jfxMainAppJarName makes native bundle generation fail,
+					at least on OS X.
+					<jfxMainAppJarName>ImageJ</jfxMainAppJarName>
+					-->
+					<preLoader>net.imagej.ImageJPreloader</preLoader>
+				</configuration>
+			</plugin>
 			<plugin>
 				<artifactId>maven-jar-plugin</artifactId>
 				<configuration>
