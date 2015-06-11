@@ -3,8 +3,8 @@
 <project name="JavaFX ImageJ Example" default="default" basedir="."
   xmlns:fx="javafx:com.sun.javafx.tools.ant">
  
-  <!-- FIXME: get JAVA_HOME env var -->
-  <property name="JAVA_HOME" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/"/>
+  <property environment="env"/>
+  <property name="JAVA_HOME" value="${env.JAVA_HOME}"/>
   <property name="build.src.dir" value="src"/>
   <property name="build.classes.dir" value="classes"/>
   <property name="build.dist.dir" value="dist"/>
