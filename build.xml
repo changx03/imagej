@@ -47,6 +47,9 @@
         <fx:application refId="ImageJ"/>
  
         <fx:resources refid="appRes"/>
+
+        <!-- NB: Make self-contained bundles *without* a JRE. -->
+        <fx:platform basedir=""/>
  
         <fx:info title="JavaFX ImageJ Application"
           vendor="LOCI"/>
