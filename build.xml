@@ -59,21 +59,18 @@
   </target>
  
   <target name="clean">
-    <mkdir dir="${build.classes.dir}"/>
-    <mkdir dir="${build.dist.dir}"/>
-    <mkdir dir="${build.app.dir}"/>
-
-    <delete>
-      <fileset dir="${build.classes.dir}"/>
-      <fileset dir="${build.dist.dir}"/>
-      <fileset dir="${build.app.dir}"/>
-    </delete>
- 
+    <delete dir="${build.classes.dir}"/>
+    <delete dir="${build.dist.dir}"/>
+    <delete dir="${build.app.dir}"/>
   </target>
  
   <!-- FIXME: depends on mvn dependency:copy-dependencies, or getting deps from local .m2 repo -->
   <target name="compile" depends="clean">
  
+    <mkdir dir="${build.classes.dir}"/>
+    <mkdir dir="${build.dist.dir}"/>
+    <mkdir dir="${build.app.dir}"/>
+
     <javac includeantruntime="false"
       srcdir="${build.src.dir}"
       destdir="${build.classes.dir}"
