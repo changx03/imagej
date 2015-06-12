@@ -8,6 +8,7 @@
   <property name="build.src.dir" value="src"/>
   <property name="build.classes.dir" value="classes"/>
   <property name="build.dist.dir" value="dist"/>
+  <property name="build.lib.dir" value="lib"/>
   <property name="build.app.dir" value="fx-app"/>
 
   <path id="master-classpath">
@@ -26,34 +27,36 @@
  
       <fx:application id="ImageJ"
         name="ImageJ"
-        mainClass="net.imagej.Main"/>
+        mainClass="net.imagej.ImageJApp"
+        fallbackClass="net.imagej.Main"/>
  
       <fx:resources id="appRes">
-        <fx:fileset dir="${build.dist.dir}" includes="imagej.jar"/>
-  <!-- FIXME: depends on mvn dependency:copy-dependencies, or getting deps from local .m2 repo -->
+<!-- FIXME: depends on mvn dependency:copy-dependencies, or getting deps from local .m2 repo -->
         <fx:fileset dir="${basedir}/target/dependency/" includes="*.jar"/>
+
+        <fx:fileset dir="${build.dist.dir}" includes="imagej.jar"/>
       </fx:resources>
  
       <fx:jar destfile="${build.dist.dir}/imagej.jar">
         <fx:application refid="ImageJ"/>
         <fx:resources refid="appRes"/>
+
         <fileset dir="${build.classes.dir}"/>
       </fx:jar>
  
-      <fx:deploy
+      <fx:deploy width="600" height="400"
         outdir="${build.app.dir}" nativebundles="all"
         outfile="imagej">
  
         <fx:application refId="ImageJ"/>
  
-        <fx:resources refid="appRes"/>
+        <fx:resources refId="appRes"/>
 
         <!-- NB: Make self-contained bundles *without* a JRE. -->
         <fx:platform basedir=""/>
  
-        <fx:info title="JavaFX ImageJ Application"
+        <fx:info title="ImageJ Application"
           vendor="LOCI"/>
- 
       </fx:deploy>
  
   </target>
