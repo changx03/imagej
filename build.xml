@@ -23,7 +23,7 @@
  
     <taskdef resource="com/sun/javafx/tools/ant/antlib.xml"
       uri="javafx:com.sun.javafx.tools.ant"
-      classpath="${JAVA_HOME}/lib/ant-javafx.jar"/>
+      classpath=".:${JAVA_HOME}/lib/ant-javafx.jar"/>
  
       <fx:application id="ImageJ"
         name="ImageJ"
