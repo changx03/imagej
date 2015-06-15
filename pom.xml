@@ -171,6 +171,9 @@
 					at least on OS X.
 					<jfxMainAppJarName>ImageJ</jfxMainAppJarName>
 					-->
+					<bundleArguments>
+						<runtime/>
+					</bundleArguments>
 				</configuration>
 			</plugin>
 			<plugin>
