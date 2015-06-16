@@ -27,7 +27,7 @@
  
       <fx:application id="ImageJ"
         name="ImageJ"
-        mainClass="net.imagej.ImageJApp"
+        mainClass="net.imagej.Main"
         fallbackClass="net.imagej.Main"/>
  
       <fx:resources id="appRes">
